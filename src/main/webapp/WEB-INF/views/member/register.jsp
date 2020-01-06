@@ -23,6 +23,29 @@
 <![endif]-->
 </head>
 
+<script src="/statics/lib/jquery/jquery-1.11.3.js"></script>
+<script src="/statics/lib/js/common.js"></script>
+
+<script>
+
+
+
+
+	var obj;
+	var url = "/member/register/crud";
+	var params = {
+			param1:'p1',
+			param2:'p2',
+	};
+	var sucessFunc = function(data) {
+		console.log(data);
+	};
+	ajaxCallNoBlock(url, params, sucessFunc, "", false);
+
+	function save(){
+		alert('저장')
+	}
+</script>
 <body>
     <div class="main-wrapper">
         <!-- ============================================================== -->
@@ -81,7 +104,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <div class="p-t-20">
-                                        <button class="btn btn-block btn-lg btn-info" type="submit">Sign Up</button>
+                                        <button class="btn btn-block btn-lg btn-info" onClick="save();">Sign Up</button>
                                     </div>
                                 </div>
                             </div>
