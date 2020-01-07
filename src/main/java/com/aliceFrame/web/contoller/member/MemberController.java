@@ -44,14 +44,38 @@ public class MemberController {
 	
 	/**
 	 * 목록
-	 * @param locale
-	 * @param model
+	 * @param request
+	 * @param response
+	 * @param commandMap
+	 * @param pMember
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/register/list", method = {RequestMethod.POST, RequestMethod.GET})
 	public Map<String, Object> memberRegisterList(HttpServletRequest request, HttpServletResponse response,@RequestParam Map<String, Object> commandMap, Member pMember) throws Exception {
+		
+		List<Member> resultList = memberSerivce.getMemberList(pMember);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+    	map.put("success", true);
+    	map.put("list", resultList);
+    	return map;
+	}
+	
+	/**
+	 * 상세 
+	 * @param request
+	 * @param response
+	 * @param commandMap
+	 * @param pMember
+	 * @return
+	 * @throws Exception
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/register/detail", method = RequestMethod.POST)
+	public Map<String, Object> memberRegisterDetail(HttpServletRequest request
+			, HttpServletResponse response,@RequestParam Map<String, Object> commandMap, Member pMember) throws Exception {
 		
 		List<Member> resultList = memberSerivce.getMemberList(pMember);
 		
