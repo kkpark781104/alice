@@ -1,11 +1,14 @@
 package com.aliceFrame.web.contoller.member;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.aliceFrame.web.domain.Member;
+import com.aliceFrame.web.service.MemberService;
+
 /**
  * @author kkpark
  * MemberController
@@ -21,6 +27,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/member")
 public class MemberController {
+	
+	@Autowired
+	private MemberService memberSerivce;
 	
 	/**
 	 * 화면 호출
@@ -35,20 +44,37 @@ public class MemberController {
 	}
 	
 	/**
+	 * 목록
+	 * @param locale
+	 * @param model
+	 * @return
+	 * @throws Exception 
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/register/list", method = {RequestMethod.POST, RequestMethod.GET})
+	public Map<String, Object> memberRegisterList(HttpServletRequest request, HttpServletResponse response,@RequestParam Map<String, Object> commandMap) throws Exception {
+		
+		Member pMember = new Member();
+		List<Member> aa = memberSerivce.getMemberList(pMember);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+    	map.put("1", "111");
+    	map.put("2", 222);
+    	return map;
+	}
+	
+	/**
 	 * CRUD 처리
 	 * @param locale
 	 * @param model
 	 * @return
 	 */
+	@ResponseBody
 	@RequestMapping(value = "/register/crud", method = {RequestMethod.POST, RequestMethod.GET})
-	public ModelAndView memberRegisterCRUD(HttpServletRequest request, HttpServletResponse response,@RequestParam Map<String, Object> commandMap) {
-		
-		ModelAndView mv = new ModelAndView();
-		
-		mv.setViewName("jsonView");
-
-		mv.addObject("data","test");
-		
-		return mv;
+	public Map<String, Object> memberRegisterCRUD(HttpServletRequest request, HttpServletResponse response,@RequestParam Map<String, Object> commandMap) {
+		Map<String, Object> map = new HashMap<String, Object>();
+    	map.put("1", "111");
+    	map.put("2", 222);
+    	return map;
 	}
 }

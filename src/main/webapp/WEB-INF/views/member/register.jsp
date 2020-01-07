@@ -32,7 +32,7 @@
 
 
 	var obj;
-	var url = "/member/register/crud";
+	var url = "/member/register/list";
 	var params = {
 			param1:'p1',
 			param2:'p2',
