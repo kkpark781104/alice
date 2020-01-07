@@ -33,14 +33,13 @@
 
 	var obj;
 	var url = "/member/register/list";
-	var params = {
-			param1:'p1',
-			param2:'p2',
+	var Member = {
+			id:1
 	};
 	var sucessFunc = function(data) {
 		console.log(data);
 	};
-	ajaxCallNoBlock(url, params, sucessFunc, "", false);
+	ajaxCallNoBlock(url, Member, sucessFunc, "", false);
 
 	function save(){
 		alert('저장')

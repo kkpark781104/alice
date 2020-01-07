@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.aliceFrame.web.domain.Member;
 import com.aliceFrame.web.service.MemberService;
@@ -52,14 +51,13 @@ public class MemberController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/register/list", method = {RequestMethod.POST, RequestMethod.GET})
-	public Map<String, Object> memberRegisterList(HttpServletRequest request, HttpServletResponse response,@RequestParam Map<String, Object> commandMap) throws Exception {
+	public Map<String, Object> memberRegisterList(HttpServletRequest request, HttpServletResponse response,@RequestParam Map<String, Object> commandMap, Member pMember) throws Exception {
 		
-		Member pMember = new Member();
-		List<Member> aa = memberSerivce.getMemberList(pMember);
+		List<Member> resultList = memberSerivce.getMemberList(pMember);
 		
 		Map<String, Object> map = new HashMap<String, Object>();
-    	map.put("1", "111");
-    	map.put("2", 222);
+    	map.put("success", true);
+    	map.put("list", resultList);
     	return map;
 	}
 	
