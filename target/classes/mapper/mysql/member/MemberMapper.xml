@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- DTD 선언 -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="memberMapper">
+
+	<!-- 현재 시간 조회 -->
+	<select id="getList" resultType="com.aliceFrame.web.domain.Member"> 
+		SELECT 
+			*
+		FROM MEMBER
+		WHERE 1=1
+			<if test="id != null and id !=''">
+			AND ID=#{id}
+			</if>
+	</select>
+	
+</mapper>
