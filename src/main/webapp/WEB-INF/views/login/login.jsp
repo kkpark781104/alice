@@ -49,20 +49,21 @@
                         <span class="db"><img src="/statics/matrixAdmin/assets/images/logo.png" alt="logo" /></span>
                     </div>
                     <!-- Form -->
-                    <form class="form-horizontal m-t-20" name="form1" method="post" action="loginProcess">
+                    <form class="form-horizontal m-t-20" method="post" action="/login">
+                    	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                         <div class="row p-b-30">
                             <div class="col-12">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
                                     </div>
-                                    <input type="text" id="loginid" class="form-control form-control-lg" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required="">
+                                    <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-warning text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
-                                    <input type="text" id="loginpwd" class="form-control form-control-lg" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required="">
+                                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
                                 </div>
                             </div>
                         </div>
