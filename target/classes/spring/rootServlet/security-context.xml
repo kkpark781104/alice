@@ -12,7 +12,8 @@
 		<security:intercept-url pattern="/sample/**" access="hasAnyRole('ROLE_USER')" />
 		<security:form-login 
 			login-page="/login" 
-			login-processing-url="/login" />
+			login-processing-url="/login"
+			default-target-url="/main" />
 		<security:logout 
 			logout-url="/logout"
 			logout-success-url="/logout"
