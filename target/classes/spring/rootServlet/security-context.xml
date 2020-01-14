@@ -10,8 +10,14 @@
 	<security:http auto-config="true" use-expressions="true">
 		<security:intercept-url pattern="/*" access="permitAll" />
 		<security:intercept-url pattern="/sample/**" access="hasAnyRole('ROLE_USER')" />
-		<security:form-login login-page="/login"
+		<security:form-login 
+			login-page="/login" 
 			login-processing-url="/login" />
+		<security:logout 
+			logout-url="/logout"
+			logout-success-url="/logout"
+			invalidate-session="true" delete-cookies="JSESSIONID" />
+
 		
 		<security:session-management invalid-session-url="/login?isSessionOut">
     	    <security:concurrency-control max-sessions="1" expired-url="/login?isDuple"/>
