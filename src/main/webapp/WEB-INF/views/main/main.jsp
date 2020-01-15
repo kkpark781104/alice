@@ -8,6 +8,8 @@
 <body>
 <h1>
 	Main
+	
+	${member.userName}
 </h1>
 
 </body>
